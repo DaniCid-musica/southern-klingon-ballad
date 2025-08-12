@@ -11,25 +11,50 @@
     h1,h2,h3{line-height:1.2;margin:0 0 .5rem}p{margin:.5rem 0 1rem}
     .section{max-width:1050px;margin:0 auto;padding:48px 16px}.full-bleed{background:#0e0d10;border-top:1px solid #1f1f26;border-bottom:1px solid #1f1f26}
     .lead{font-size:1.05rem;color:#ddd}.small{font-size:.9rem}.dim{color:var(--muted)}
-    /* hero animado (fuego/humo abstracto) */
-    .hero{position:relative;min-height:72vh;display:grid;place-items:center;background:#000;overflow:hidden}
-    .hero::before,.hero::after{content:"";position:absolute;inset:-20%;background:
-      radial-gradient(closest-side at 50% 120%, rgba(255,90,0,.25), transparent 65%),
-      radial-gradient(closest-side at 10% 110%, rgba(255,0,0,.15), transparent 60%),
-      radial-gradient(closest-side at 90% 120%, rgba(255,140,0,.12), transparent 65%);filter:blur(20px);animation:breath 8s ease-in-out infinite}
-    .hero::after{background:
-      radial-gradient(closest-side at 50% -10%, rgba(255,200,0,.25), transparent 70%),
-      radial-gradient(closest-side at 0% 120%, rgba(255,60,0,.18), transparent 70%),
-      radial-gradient(closest-side at 100% 120%, rgba(255,80,0,.18), transparent 70%);animation:breath 11s ease-in-out infinite reverse}
-    @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-    .hero-overlay{
+   /* Hero contenedor */
+.hero{
+  position:relative;min-height:72vh;display:grid;place-items:center;
+  background:#000;overflow:hidden;
+}
+
+/* Capas de fuego/humo (suavizadas) */
+.hero::before,
+.hero::after{
+  content:""; position:absolute; inset:-20%;
+  filter:blur(14px); opacity:.22; animation:breath 9s ease-in-out infinite;
+  background:
+    radial-gradient(closest-side at 50% 120%, rgba(255,90,0,.25), transparent 65%),
+    radial-gradient(closest-side at 10% 110%, rgba(255,0,0,.15), transparent 60%),
+    radial-gradient(closest-side at 90% 120%, rgba(255,140,0,.12), transparent 65%);
+}
+.hero::after{
+  background:
+    radial-gradient(closest-side at 50% -10%, rgba(255,200,0,.25), transparent 70%),
+    radial-gradient(closest-side at 0% 120%, rgba(255,60,0,.18), transparent 70%),
+    radial-gradient(closest-side at 100% 120%, rgba(255,80,0,.18), transparent 70%);
+  filter:blur(18px);
+  animation:breath 11s ease-in-out infinite reverse;
+}
+
+/* Imagen de portada con velo más claro */
+.hero-overlay{
   position:absolute;inset:0;
   background:
-    linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.85)),
-    url('./hero.png') center/cover no-repeat;
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+    url('./hero.png') center/cover no-repeat;  /* usa .jpg si corresponde */
   mix-blend:normal;
 }
-    /* Título forjado */
+.hero{
+  position:relative;min-height:72vh;display:grid;place-items:center;
+  background:#000;overflow:hidden;
+}
+
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.55)),
+    url('./hero.png') center/cover no-repeat;
+  mix-blend:normal;
     .forged-title{position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;letter-spacing:.02em;text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;text-shadow:0 0 12px rgba(255,70,0,.2)}
     .forged-title .char{display:inline-block;opacity:.25;transform:translateY(8px) scale(.96);filter:brightness(.7)}
     .forged-title .char.lit{color:#ffd9a3;text-shadow:0 0 8px rgba(255,120,0,.6),0 0 18px rgba(255,200,0,.35),0 0 36px rgba(255,120,0,.25);transform:translateY(0) scale(1);opacity:1;transition:all .18s ease}
