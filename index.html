@@ -35,12 +35,25 @@
   }
   /* Imagen portada más nítida */
   .hero-overlay{
-    position:absolute;inset:0;
-    background:
-      linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.42)),
-      url('./hero.png') center/cover no-repeat; /* cambia a .jpg si tu archivo es JPG */
-    filter:contrast(1.25) saturate(1.2) brightness(1.06);
-    mix-blend:normal;
+  position:absolute; inset:0; z-index:0;
+  background:
+    /* velo más claro */
+    linear-gradient(to bottom, rgba(0,0,0,.18), rgba(0,0,0,.32)),
+    url('./hero.png') center/cover no-repeat; /* usa .jpg si es JPG */
+  /* más nitidez */
+  filter: contrast(1.28) saturate(1.22) brightness(1.08);
+  mix-blend-mode: normal;
+}
+
+.hero{ min-height: 60vh; }
+
+main{ position: relative; z-index: 1; background: var(--bg); }
+  mix-blend-mode: normal;
+    /* el héroe un poco más corto para que se vea el resto al hacer scroll */
+.hero{ min-height: 60vh; }
+
+/* garantizamos que el contenido esté por encima del fondo y con color de fondo */
+main{ position: relative; z-index: 1; background: var(--bg); }
   }
   /* Título forjado */
   .forged-title{position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;letter-spacing:.02em;text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;text-shadow:0 0 12px rgba(255,70,0,.2)}
