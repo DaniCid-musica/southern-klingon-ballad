@@ -5,107 +5,97 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Balada de Honor y Rechazo · Southern Klingon Ballad</title>
   <meta name="description" content="Obra musical klingon del sur por Daniel Cid: balada glam-heavy metal con dialecto artístico y versión canónica.">
-
   <!-- Tipografía para la leyenda -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
-
   <style>
- :root{
-  --bg:#0b0b0c; --card:#141418; --text:#e8e8ea; --muted:#9b9c92; --accent:#db2b2b;
-}
+  :root{ --bg:#0b0b0c; --card:#141418; --text:#e8e8ea; --muted:#9b9c92; --accent:#db2b2b; }
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;line-height:1.55}
+  h1,h2,h3{line-height:1.2;margin:.0 .5rem .5rem 0}
+  .section{max-width:1050px;margin:0 auto;padding:48px 16px}
+  .full-bleed{background:#0e0d10;border-top:1px solid #1f1f26;border-bottom:1px solid #1f1f26}
+  .lead{font-size:1.05rem;color:#ddd}.small{font-size:.9rem}.dim{color:var(--muted)}
 
-/* Base */
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;line-height:1.55}
-h1,h2,h3{line-height:1.2;margin:.0 .5rem .5rem 0}
-.section{max-width:1050px;margin:0 auto;padding:48px 16px}
-.full-bleed{background:#0e0d10;border-top:1px solid #1f1f26;border-bottom:1px solid #1f1f26}
-.lead{font-size:1.05rem;color:#ddd}.small{font-size:.9rem}.dim{color:var(--muted)}
+  /* HERO */
+  .hero{position:relative;min-height:72vh;display:grid;place-items:center;background:#000;overflow:hidden}
+  .hero::before,.hero::after{
+    content:"";position:absolute;inset:-20%;
+    filter:blur(14px);opacity:.20;animation:breath 9s ease-in-out infinite;
+    background:
+      radial-gradient(closest-side at 50% 120%, rgba(255,90,0,.22), transparent 65%),
+      radial-gradient(closest-side at 10% 110%, rgba(255,0,0,.12), transparent 60%),
+      radial-gradient(closest-side at 90% 120%, rgba(255,140,0,.10), transparent 65%);
+  }
+  .hero::after{
+    background:
+      radial-gradient(closest-side at 50% -10%, rgba(255,200,0,.22), transparent 70%),
+      radial-gradient(closest-side at 0% 120%, rgba(255,60,0,.16), transparent 70%),
+      radial-gradient(closest-side at 100% 120%, rgba(255,80,0,.16), transparent 70%);
+    filter:blur(18px);
+    animation:breath 11s ease-in-out infinite reverse;
+  }
+  /* Imagen portada más nítida */
+  .hero-overlay{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.42)),
+      url('./hero.png') center/cover no-repeat; /* cambia a .jpg si tu archivo es JPG */
+    filter:contrast(1.25) saturate(1.2) brightness(1.06);
+    mix-blend:normal;
+  }
+  /* Título forjado */
+  .forged-title{position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;letter-spacing:.02em;text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;text-shadow:0 0 12px rgba(255,70,0,.2)}
+  .forged-title .char{display:inline-block;opacity:.25;transform:translateY(8px) scale(.96);filter:brightness(.7)}
+  .forged-title .char.lit{color:#ffd9a3;text-shadow:0 0 8px rgba(255,120,0,.6),0 0 18px rgba(255,200,0,.35),0 0 36px rgba(255,120,0,.25);transform:translateY(0) scale(1);opacity:1;transition:all .18s ease}
+  .forged-title .char.spark::after{content:"";position:absolute;left:50%;top:110%;width:2px;height:10px;background:linear-gradient(#ffe7b0,rgba(255,130,0,0));transform:translateX(-50%);filter:blur(.2px);opacity:.8;animation:spark .6s ease forwards}
+  @keyframes spark{to{transform:translate(-50%,30px);opacity:0}}
+  .scroll-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);color:#fff;opacity:.6;font-size:28px;animation:float 1.6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+  @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 
-/* HERO */
-.hero{position:relative;min-height:72vh;display:grid;place-items:center;background:#000;overflow:hidden}
+  /* Idiomas */
+  .lang-switch{position:absolute;top:14px;right:14px;display:flex;gap:8px;z-index:3}
+  .lang-btn{background:#16161b;border:1px solid #2c2c36;color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;font-size:20px}
+  .lang-btn[aria-pressed="true"]{outline:2px solid var(--accent)}
 
-/* Fuego/humo suavizado */
-.hero::before,.hero::after{
-  content:"";position:absolute;inset:-20%;
-  filter:blur(14px);opacity:.20;animation:breath 9s ease-in-out infinite;
-  background:
-    radial-gradient(closest-side at 50% 120%, rgba(255,90,0,.22), transparent 65%),
-    radial-gradient(closest-side at 10% 110%, rgba(255,0,0,.12), transparent 60%),
-    radial-gradient(closest-side at 90% 120%, rgba(255,140,0,.10), transparent 65%);
-}
-.hero::after{
-  background:
-    radial-gradient(closest-side at 50% -10%, rgba(255,200,0,.22), transparent 70%),
-    radial-gradient(closest-side at 0% 120%, rgba(255,60,0,.16), transparent 70%),
-    radial-gradient(closest-side at 100% 120%, rgba(255,80,0,.16), transparent 70%);
-  filter:blur(18px);
-  animation:breath 11s ease-in-out infinite reverse;
-}
+  /* Leyenda estilo “klingon” */
+  .k-legend{
+    font-family:'Orbitron',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;
+    text-transform:uppercase;letter-spacing:.06em;font-weight:900;text-align:center;
+    font-size:clamp(18px,2.6vw,28px);line-height:1.35;margin:0 auto;max-width:1050px;padding:36px 16px;
+  }
+  .k-legend p{margin:.35rem 0}
+  .k-tlh{color:#ffd9a3}.k-dialect{color:#f5b0a0;font-style:italic}.k-es{color:#e9e5dc}.k-en{color:#d6d2ca}
 
-/* Imagen de portada más nítida */
-.hero-overlay{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.42)),
-    url('./hero.png') center/cover no-repeat; /* cambia a .jpg si tu archivo es JPG */
-  filter:contrast(1.25) saturate(1.2) brightness(1.06);
-  mix-blend:normal;
-}
+  /* Players lado a lado */
+  .players{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:18px;margin-top:10px}
+  @media (max-width:740px){.players{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid #22232b;border-radius:14px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+  .card h3{margin-bottom:.5rem;color:#fff}
 
-/* Título “forjado” */
-.forged-title{position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;
-  letter-spacing:.02em;text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;
-  text-shadow:0 0 12px rgba(255,70,0,.2)}
-.forged-title .char{display:inline-block;opacity:.25;transform:translateY(8px) scale(.96);filter:brightness(.7)}
-.forged-title .char.lit{color:#ffd9a3;text-shadow:0 0 8px rgba(255,120,0,.6),0 0 18px rgba(255,200,0,.35),0 0 36px rgba(255,120,0,.25);
-  transform:translateY(0) scale(1);opacity:1;transition:all .18s ease}
-.forged-title .char.spark::after{content:"";position:absolute;left:50%;top:110%;width:2px;height:10px;
-  background:linear-gradient(#ffe7b0,rgba(255,130,0,0));transform:translateX(-50%);filter:blur(.2px);opacity:.8;animation:spark .6s ease forwards}
-@keyframes spark{to{transform:translate(-50%,30px);opacity:0}}
-.scroll-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);color:#fff;opacity:.6;font-size:28px;animation:float 1.6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
-@keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  /* Acordeones / letras */
+  .accordion{background:var(--card);border:1px solid #23242b;border-radius:12px;padding:10px;margin:12px 0}
+  .accordion>summary{cursor:pointer;font-weight:700}
+  .lyrics{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;color:#eaeaea;background:#1a1b22;border-radius:10px;padding:12px}
 
-/* Selector idiomas */
-.lang-switch{position:absolute;top:14px;right:14px;display:flex;gap:8px;z-index:3}
-.lang-btn{background:#16161b;border:1px solid #2c2c36;color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;font-size:20px}
-.lang-btn[aria-pressed="true"]{outline:2px solid var(--accent)}
+  /* Tabla comparativa (mejorada) */
+  .table-wrap{overflow:auto}
+  table{width:100%;border-collapse:collapse;margin:10px 0}
+  th,td{padding:10px;border-bottom:1px solid #2a2b33}
+  th{text-align:left;color:#fff}td{color:#ddd}
+  .table-wrap table td,.table-wrap table th{vertical-align:top}
+  .table-wrap table tbody tr:nth-child(even){background:#15151a}
+  .table-wrap table td:nth-child(1){white-space:nowrap;font-weight:700;color:#ffe0b3}
+  .table-wrap table td:nth-child(4){white-space:nowrap;color:#cfe1ff}
+  .table-wrap code{background:#1a1b22;padding:0 .35em;border-radius:4px}
 
-/* Leyenda “klingonizada” (usa la fuente Orbitron incluida en <head>) */
-.k-legend{
-  font-family:'Orbitron',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;
-  text-transform:uppercase;letter-spacing:.06em;font-weight:900;text-align:center;
-  font-size:clamp(18px,2.6vw,28px);line-height:1.35;margin:0 auto;max-width:1050px;padding:36px 16px;
-}
-.k-legend p{margin:.35rem 0}
-.k-tlh{color:#ffd9a3}.k-dialect{color:#f5b0a0;font-style:italic}.k-es{color:#e9e5dc}.k-en{color:#d6d2ca}
-
-/* Players lado a lado (responsivo) */
-.players{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:18px;margin-top:10px}
-@media (max-width:740px){.players{grid-template-columns:1fr}}
-.card{background:var(--card);border:1px solid #22232b;border-radius:14px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
-.card h3{margin-bottom:.5rem;color:#fff}
-
-/* Acordeones / letras */
-.accordion{background:var(--card);border:1px solid #23242b;border-radius:12px;padding:10px;margin:12px 0}
-.accordion>summary{cursor:pointer;font-weight:700}
-.lyrics{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;color:#eaeaea;background:#1a1b22;border-radius:10px;padding:12px}
-
-/* Tabla comparativa */
-.table-wrap{overflow:auto}
-table{width:100%;border-collapse:collapse;margin:10px 0}
-th,td{padding:10px;border-bottom:1px solid #2a2b33}
-th{text-align:left;color:#fff}td{color:#ddd}
-
-/* Formulario */
-.contact-form{display:grid;gap:10px;max-width:640px}
-.contact-form input,.contact-form textarea{background:#15161c;border:1px solid #2a2b33;color:#fff;border-radius:10px;padding:10px}
-.btn{background:linear-gradient(180deg,#d93,#a22);border:none;padding:10px 14px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
-.btn:hover{filter:brightness(1.08)}
-
-/* Footer */
-.footer{padding:30px 16px;text-align:center;color:#bfbfc8;border-top:1px solid #23242b}
+  /* Formulario / footer */
+  .contact-form{display:grid;gap:10px;max-width:640px}
+  .contact-form input,.contact-form textarea{background:#15161c;border:1px solid #2a2b33;color:#fff;border-radius:10px;padding:10px}
+  .btn{background:linear-gradient(180deg,#d93,#a22);border:none;padding:10px 14px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
+  .btn:hover{filter:brightness(1.08)}
+  .footer{padding:30px 16px;text-align:center;color:#bfbfc8;border-top:1px solid #23242b}
+  </style>
+</head>
 
 <body>
   <!-- HERO -->
@@ -137,7 +127,7 @@ th{text-align:left;color:#fff}td{color:#ddd}
     <!-- DECLARACIÓN ARTÍSTICA (debajo de la leyenda) -->
     <section class="section" id="statement">
       <h2 data-i18n="statement.title">🎭 Declaración artística</h2>
-      <p data-i18n="statement.body">Esta canción nace del deseo de explorar una dimensión poco abordada de la cultura klingon: el dolor emocional. No desde la debilidad, sino desde el choque entre honor, furia y rechazo. Me alejé del canon por razones expresivas: el “Klingon del Sur” me evocó la fuerza cruda de las películas clásicas de Star Trek.</p>
+      <p data-i18n="statement.body">Compuse esta balada para explorar una emoción klingon rara vez cantada: el desamor vivido como combate interior. Amo y respeto profundamente el tlhIngan Hol canónico —me ha guiado durante todo el proceso—, pero al cantar sentí que la métrica y el timbre pedían otra cosa: una dicción más áspera, con golpes de voz secos y vocales abiertas propias del español, que me acercan a la fiereza con la que el honor y la rabia aparecen en las películas y series clásicas de Star Trek. Por eso empleo un registro poético no canónico (“Klingon del Sur”): no pretende sustituir al idioma, sino amplificar su espíritu de batlh y quv con acento hispánico, fricción y pasión. La versión canónica acompaña la obra como homenaje; esta variante musical es mi lectura artística del mismo fuego.</p>
       <p class="byline">— Daniel Cid</p>
     </section>
 
@@ -145,7 +135,6 @@ th{text-align:left;color:#fff}td{color:#ddd}
     <section class="section" id="listen">
       <h2 data-i18n="listen.title">🎧 Escuchar la canción</h2>
       <p class="lead dim" data-i18n="listen.lead">Accede a las dos versiones: dialecto Klingon del Sur y tlhIngan Hol canónico.</p>
-
       <div class="players">
         <article class="card">
           <h3 data-i18n="listen.dialect">Versión Dialecto Klingon del Sur</h3>
@@ -154,7 +143,6 @@ th{text-align:left;color:#fff}td{color:#ddd}
             Tu navegador no soporta audio HTML5.
           </audio>
         </article>
-
         <article class="card">
           <h3 data-i18n="listen.canon">Versión Canónica (tlhIngan Hol)</h3>
           <audio controls preload="none">
@@ -163,7 +151,6 @@ th{text-align:left;color:#fff}td{color:#ddd}
           </audio>
         </article>
       </div>
-
       <p class="small dim" data-i18n="listen.note">Nota: cuando quieras, subimos los MP3 al repo y activamos las rutas.</p>
     </section>
 
@@ -225,9 +212,10 @@ jIQapbe' – jIvanglaHbe'
 jIvoqbe' – jIHeghbe'
 jISaHbe' – jIQubbe'</pre>
       </details>
-    <details class="accordion">
-  <summary>🇪🇸 Español (traducción emocional)</summary>
-  <pre class="lyrics">[Verso 1]
+
+      <details class="accordion">
+        <summary>🇪🇸 Español (traducción emocional)</summary>
+        <pre class="lyrics">[Verso 1]
 No soy amado. Nunca fuiste mía.
 Mi alma llora en silencio sin ti.
 Tú no tienes lo que late en mí.
@@ -241,10 +229,11 @@ No soy nada – no arde mi sangre.
 Tú, que no amas, no ves mi fuego.
 Te vas de mi amor – ignoras mi herida.
 Y aquí me quedo – roto en el tiempo.</pre>
-</details>
-    <details class="accordion">
-  <summary>🇺🇸 English (emotional translation)</summary>
-  <pre class="lyrics">[Verse 1]
+      </details>
+
+      <details class="accordion">
+        <summary>🇺🇸 English (emotional translation)</summary>
+        <pre class="lyrics">[Verse 1]
 I am unloved. You were never mine.
 My soul cries in silence without you.
 You do not hold what beats in me.
@@ -258,26 +247,45 @@ I am nothing — my blood will not boil.
 You, who do not love, cannot see my fire.
 You walk away from my love — you ignore my wound.
 And here I remain — broken in time.</pre>
-</details>
+      </details>
     </section>
 
-    <!-- DIALÉCTO / RESPETO / CONTACTO -->
+    <!-- DIALÉCTO / TABLA COMPARATIVA -->
     <section class="section" id="dialect">
       <h2 data-i18n="dialect.title">🧠 ¿Qué es el dialecto Klingon del Sur?</h2>
       <p data-i18n="dialect.p1">No pretende competir con el tlhIngan Hol canónico. Es un registro poético y fonético creado para cantar. Su objetivo es la emoción: desamor, furia, honor herido.</p>
+
       <div class="table-wrap">
         <table>
-          <thead><tr><th>Sílaba (dialecto)</th><th>Eco canónico</th><th>Evocación</th></tr></thead>
+          <thead>
+            <tr>
+              <th>Sílaba (dialecto)</th>
+              <th>Descomposición</th>
+              <th>Sentido tentativo</th>
+              <th>tlhIngan Hol cercano</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr><td>vihar-beh</td><td>vIHar + -be’</td><td>“yo no odio”</td></tr>
-            <tr><td>vilosh-ta</td><td>val + Qel + -ta’</td><td>“te valoré”</td></tr>
-            <tr><td>kheech-wij</td><td>QIch + wIj</td><td>“mi voz/palabra”</td></tr>
+            <tr><td>vihar-beh</td><td><code>vIHar</code> + <code>-be’</code></td><td>“yo no odio”</td><td><code>vIHarbe'</code></td></tr>
+            <tr><td>vilosh-ta</td><td><code>val</code> + <code>Qel</code> + <code>-ta’</code></td><td>“te valoré / consideré”</td><td><code>SoH vIQelta'</code> (poético)</td></tr>
+            <tr><td>kheech-wij</td><td><code>QIch</code> + <code>wIj</code></td><td>“mi voz / mi palabra”</td><td><code>QIchwIj</code></td></tr>
+            <tr><td>yab-wij</td><td><code>yab</code> + <code>wIj</code></td><td>“mi mente”</td><td><code>yabwIj</code></td></tr>
+            <tr><td>soov-wij</td><td><code>SuvwI’</code> + <code>wIj</code> (o <code>quv</code> + <code>wIj</code>)</td><td>“mi guerrero / mi honor”</td><td><code>SuvwI'wIj</code> / <code>quvwIj</code></td></tr>
+            <tr><td>kheed-wij</td><td><code>QeH</code> + <code>wIj</code></td><td>“mi ira”</td><td><code>QeHwIj</code></td></tr>
+            <tr><td>dak-hoon</td><td><code>Da</code>- + <code>tlhej</code> / <code>ghoS</code></td><td>“me acompañas / acudes a mí”</td><td><code>Datlhej</code> / <code>DaghoS</code></td></tr>
+            <tr><td>rahm-dookh-bokh</td><td><code>ram</code> + <code>Dugh</code> + <code>bogh</code></td><td>“sombra vigilante de la noche”</td><td><code>ramDughbogh</code> (poético)</td></tr>
+            <tr><td>nah-dev</td><td><code>naDev</code> (+ <code>-vo’</code>)</td><td>“(desde) aquí”</td><td><code>naDevvo'</code></td></tr>
+            <tr><td>khoot-lkh</td><td>aprox. <code>Qutluch</code></td><td>“cuchillo del asesino” (arma)</td><td><code>Qutluch</code></td></tr>
           </tbody>
         </table>
       </div>
+
+      <p class="small dim">Nota: estas equivalencias son <em>evocaciones fonéticas y poéticas</em> inspiradas en el klingon canónico; no deben leerse como gramática oficial.</p>
+
       <p data-i18n="dialect.p2">En un imperio tan vasto, son plausibles formas dialectales, arcaicas o rituales. El “Klingon del Sur” amplifica el canon desde otro ángulo: crudo, ritual, emocional.</p>
     </section>
 
+    <!-- RESPETO / CONTACTO -->
     <section class="section" id="respect">
       <h2 data-i18n="respect.title">🪐 Declaración de respetuosas intenciones</h2>
       <p data-i18n="respect.p1">Este proyecto no contradice el canon. Presenta dos versiones (dialecto y canónica) y una reflexión lingüística para dialogar con la comunidad del KLI desde el respeto.</p>
@@ -293,7 +301,7 @@ And here I remain — broken in time.</pre>
         <textarea name="message" rows="5" required placeholder="Escribe aquí..."></textarea>
         <button type="submit" class="btn" data-i18n="contact.send">Enviar</button>
       </form>
-      <p class="small dim" data-i18n="contact.note"></p>
+      <p class="small dim" data-i18n="contact.note">Nota: si luego querés que esto se envíe sin abrir tu correo, integramos Formspree.</p>
     </section>
   </main>
 
@@ -302,8 +310,8 @@ And here I remain — broken in time.</pre>
   </footer>
 
   <script>
-  /* i18n (igual que tenías) */
-  const i18n={es:{"listen.title":"🎧 Escuchar la canción","listen.lead":"Accede a las dos versiones: dialecto Klingon del Sur y tlhIngan Hol canónico.","listen.dialect":"Versión Dialecto Klingon del Sur","listen.canon":"Versión Canónica (tlhIngan Hol)","listen.note":"Nota: cuando quieras, subimos los MP3 al repo y activamos las rutas.","lyrics.title":"📜 Letras y Traducciones","statement.title":"🎭 Declaración artística","statement.body":"Esta canción nace del deseo de explorar una dimensión poco abordada de la cultura klingon: el dolor emocional. No desde la debilidad, sino desde el choque entre honor, furia y rechazo. Me alejé del canon por razones expresivas: el “Klingon del Sur” me evocó la fuerza cruda de las películas clásicas de Star Trek.","dialect.title":"🧠 ¿Qué es el dialecto Klingon del Sur?","dialect.p1":"No pretende competir con el tlhIngan Hol canónico. Es un registro poético y fonético creado para cantar. Su objetivo es la emoción: desamor, furia, honor herido.","dialect.p2":"En un imperio tan vasto, son plausibles formas dialectales, arcaicas o rituales. El “Klingon del Sur” amplifica el canon desde otro ángulo: crudo, ritual, emocional.","respect.title":"🪐 Declaración de respetuosas intenciones","respect.p1":"Este proyecto no contradice el canon. Presenta dos versiones (dialecto y canónica) y una reflexión lingüística para dialogar con la comunidad del KLI desde el respeto.","contact.title":"💬 Comentarios","contact.lead":"Tu mensaje llegará de forma privada al autor.","contact.name":"Nombre","contact.msg":"Mensaje","contact.send":"Enviar","footer.all":"Todos los derechos reservados"},en:{"listen.title":"🎧 Listen to the song","listen.lead":"Access both versions: Southern Klingon dialect and canonical tlhIngan Hol.","listen.dialect":"Southern Klingon Dialect Version","listen.canon":"Canonical Version (tlhIngan Hol)","listen.note":"Note: when ready, upload your MP3 to the repo and update the sources.","lyrics.title":"📜 Lyrics & Translations","statement.title":"🎭 Artistic Statement","statement.body":"This song explores a rarely addressed side of Klingon culture: emotional pain — not weakness, but the clash of honor, rage, and rejection. I stepped away from canon for expressive reasons: the “Southern Klingon” sound recalls the raw force of classic Star Trek films.","dialect.title":"🧠 What is the Southern Klingon dialect?","dialect.p1":"It does not aim to replace canonical tlhIngan Hol. It's a poetic/phonetic register made to sing. Its goal is emotion: heartbreak, fury, wounded honor.","dialect.p2":"In a vast empire, dialectal, archaic or ritual forms are plausible. “Southern Klingon” amplifies canon from another angle: raw, ritual, emotional.","respect.title":"🪐 Respectful Intent Statement","respect.p1":"This project does not contradict canon. It presents two versions (dialect and canonical) plus a linguistic reflection to engage respectfully with the KLI community.","contact.title":"💬 Comments","contact.lead":"Your message will reach the author privately.","contact.name":"Name","contact.msg":"Message","contact.send":"Send","footer.all":"All rights reserved"},tlh:{"listen.title":"🎧 bom yIqoy","listen.lead":"cha' ghantoH tu'lu': tlhIngan Hol SuDqu' je tlhIngan Hol pat lugh.","listen.dialect":"bom – SuDqu’ Hol","listen.canon":"bom – tlhIngan Hol (pat lugh)","listen.note":"QIn: mp3 Daq Dalo'chugh, Daq’e’ Daq DaneHchugh, ghIH yIchenmoH.","lyrics.title":"📜 mu' bom je","statement.title":"🎭 QIn qonwI' QIn","statement.body":"tlhIngan tIqDaq QID 'oH ngoQ'e'. quv, QeH, luqIHchu' QID je. wa'logh canonvo' jIleng: SuDqu' Hol HoS QeH van law'.","dialect.title":"🧠 SuDqu’ Hol 'oH nuq'e'?","dialect.p1":"canon vItuQbe'. bommeH Hol 'oH. Qap qoD: bang, QeH, quv QID.","dialect.p2":"vo' raQqu' wo' QIv, Holmey pIm tu'lu'laH: tIQ, Sech, tIghvam. SuDqu' Hol canon wuvmoH: tlhaQ 'ach HoS.","respect.title":"🪐 batlh QIn","respect.p1":"canon vIQIHbe'. cha' ghantoH vInob: SuDqu' je pat lugh; 'ej Hol Qel jabbI'ID vIchel. KLI qech vIvuD le'qu'.","contact.title":"💬 QInmey","contact.lead":"QInlIj qel qonwI'. nItebHa' Dellu'.","contact.name":"pong","contact.msg":"QIn","contact.send":"ngeH","footer.all":"Hoch jotlhlu'"}};
+  /* i18n */
+  const i18n={es:{"listen.title":"🎧 Escuchar la canción","listen.lead":"Accede a las dos versiones: dialecto Klingon del Sur y tlhIngan Hol canónico.","listen.dialect":"Versión Dialecto Klingon del Sur","listen.canon":"Versión Canónica (tlhIngan Hol)","listen.note":"Nota: cuando quieras, subimos los MP3 al repo y activamos las rutas.","lyrics.title":"📜 Letras y Traducciones","statement.title":"🎭 Declaración artística","statement.body":"Compuse esta balada para explorar una emoción klingon rara vez cantada: el desamor vivido como combate interior. Amo y respeto profundamente el tlhIngan Hol canónico —me ha guiado durante todo el proceso—, pero al cantar sentí que la métrica y el timbre pedían otra cosa: una dicción más áspera, con golpes de voz secos y vocales abiertas propias del español, que me acercan a la fiereza con la que el honor y la rabia aparecen en las películas y series clásicas de Star Trek. Por eso empleo un registro poético no canónico (“Klingon del Sur”): no pretende sustituir al idioma, sino amplificar su espíritu de batlh y quv con acento hispánico, fricción y pasión. La versión canónica acompaña la obra como homenaje; esta variante musical es mi lectura artística del mismo fuego.","dialect.title":"🧠 ¿Qué es el dialecto Klingon del Sur?","dialect.p1":"No pretende competir con el tlhIngan Hol canónico. Es un registro poético y fonético creado para cantar. Su objetivo es la emoción: desamor, furia, honor herido.","dialect.p2":"En un imperio tan vasto, son plausibles formas dialectales, arcaicas o rituales. El “Klingon del Sur” amplifica el canon desde otro ángulo: crudo, ritual, emocional.","respect.title":"🪐 Declaración de respetuosas intenciones","respect.p1":"Este proyecto no contradice el canon. Presenta dos versiones (dialecto y canónica) y una reflexión lingüística para dialogar con la comunidad del KLI desde el respeto.","contact.title":"💬 Comentarios","contact.lead":"Tu mensaje llegará de forma privada al autor.","contact.name":"Nombre","contact.msg":"Mensaje","contact.send":"Enviar","footer.all":"Todos los derechos reservados"},en:{"listen.title":"🎧 Listen to the song","listen.lead":"Access both versions: Southern Klingon dialect and canonical tlhIngan Hol.","listen.dialect":"Southern Klingon Dialect Version","listen.canon":"Canonical Version (tlhIngan Hol)","listen.note":"Note: when ready, upload your MP3 to the repo and update the sources.","lyrics.title":"📜 Lyrics & Translations","statement.title":"🎭 Artistic Statement","statement.body":"I wrote this ballad to explore a Klingon emotion rarely sung: heartbreak as an inner battle. I deeply love and respect canonical tlhIngan Hol—it guided me throughout—but when singing I felt the meter and timbre demanded something else: a rougher diction with crisp attacks and open vowels from Spanish, closer to the ferocity with which honor and rage are portrayed in classic Star Trek films and series. That is why I use a non-canonical poetic register (“Southern Klingon”): not to replace the language, but to amplify its spirit of batlh and quv with a Hispanic accent, grit, and passion. The canonical version stands as a tribute; this musical variant is my artistic reading of the same fire.","dialect.title":"🧠 What is the Southern Klingon dialect?","dialect.p1":"It does not aim to replace canonical tlhIngan Hol. It's a poetic/phonetic register made to sing. Its goal is emotion: heartbreak, fury, wounded honor.","dialect.p2":"In a vast empire, dialectal, archaic or ritual forms are plausible. “Southern Klingon” amplifies canon from another angle: raw, ritual, emotional.","respect.title":"🪐 Respectful Intent Statement","respect.p1":"This project does not contradict canon. It presents two versions (dialect and canonical) plus a linguistic reflection to engage respectfully with the KLI community.","contact.title":"💬 Comments","contact.lead":"Your message will reach the author privately.","contact.name":"Name","contact.msg":"Message","contact.send":"Send","footer.all":"All rights reserved"},tlh:{"listen.title":"🎧 bom yIqoy","listen.lead":"cha' ghantoH tu'lu': tlhIngan Hol SuDqu' je tlhIngan Hol pat lugh.","listen.dialect":"bom – SuDqu’ Hol","listen.canon":"bom – tlhIngan Hol (pat lugh)","listen.note":"QIn: mp3 Daq Dalo'chugh, Daq’e’ Daq DaneHchugh, ghIH yIchenmoH.","lyrics.title":"📜 mu' bom je","statement.title":"🎭 QIn qonwI' QIn","statement.body":"tlhIngan Hol vIvuvqu’. ‘ach bomvamDaq QeH batlh je tIqDaq ghu’ vIDel. bomDI’ mu’meymey vIchenmoHmeH, qab tIn, mu’ naQ, qabchu’ ‘ej bom loQ SuDqu’ Hol vIlo’. canon lugh vIqawmoH; ‘ach SuDqu’ Hol ‘oH jan’a’—batlh quv je vabDot law’ vInupmoH.","dialect.title":"🧠 SuDqu’ Hol 'oH nuq'e'?","dialect.p1":"canon vItuQbe'. bommeH Hol 'oH. Qap qoD: bang, QeH, quv QID.","dialect.p2":"vo' raQqu' wo' QIv, Holmey pIm tu'lu'laH: tIQ, Sech, tIghvam. SuDqu' Hol canon wuvmoH: tlhaQ 'ach HoS.","respect.title":"🪐 batlh QIn","respect.p1":"canon vIQIHbe'. cha' ghantoH vInob: SuDqu' je pat lugh; 'ej Hol Qel jabbI'ID vIchel. KLI qech vIvuD le'qu'.","contact.title":"💬 QInmey","contact.lead":"QInlIj qel qonwI'. nItebHa' Dellu'.","contact.name":"pong","contact.msg":"QIn","contact.send":"ngeH","footer.all":"Hoch jotlhlu'"}};
 
   function forgeTitle(text){
     const t=document.getElementById('forgedTitle');t.innerHTML="";
