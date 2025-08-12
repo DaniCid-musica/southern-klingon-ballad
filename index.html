@@ -22,7 +22,13 @@
       radial-gradient(closest-side at 0% 120%, rgba(255,60,0,.18), transparent 70%),
       radial-gradient(closest-side at 100% 120%, rgba(255,80,0,.18), transparent 70%);animation:breath 11s ease-in-out infinite reverse}
     @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.85))}
+    .hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.85)),
+    url('./hero.png') center/cover no-repeat;
+  mix-blend:normal;
+}
     /* Título forjado */
     .forged-title{position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;letter-spacing:.02em;text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;text-shadow:0 0 12px rgba(255,70,0,.2)}
     .forged-title .char{display:inline-block;opacity:.25;transform:translateY(8px) scale(.96);filter:brightness(.7)}
