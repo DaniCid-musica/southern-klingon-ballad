@@ -10,94 +10,102 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
   <style>
-  :root{
-    --bg:#0b0b0c; --card:#141418; --text:#e8e8ea; --muted:#9b9c92; --accent:#db2b2b;
-  }
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;line-height:1.55}
-  h1,h2,h3{line-height:1.2;margin:.0 .5rem .5rem 0}
-  .section{max-width:1050px;margin:0 auto;padding:48px 16px}
-  .full-bleed{background:#0e0d10;border-top:1px solid #1f1f26;border-bottom:1px solid #1f1f26}
-  .lead{font-size:1.05rem;color:#ddd}.small{font-size:.9rem}.dim{color:var(--muted)}
+ :root{
+  --bg:#0b0b0c; --card:#141418; --text:#e8e8ea; --muted:#9b9c92; --accent:#db2b2b;
+}
 
-  /* Hero */
-  .hero{position:relative;min-height:72vh;display:grid;place-items:center;background:#000;overflow:hidden}
-  /* Capas de fuego/humo (suavizadas) */
-  .hero::before,.hero::after{
-    content:"";position:absolute;inset:-20%;
-    filter:blur(14px);opacity:.20;animation:breath 9s ease-in-out infinite;
-    background:
-      radial-gradient(closest-side at 50% 120%, rgba(255,90,0,.22), transparent 65%),
-      radial-gradient(closest-side at 10% 110%, rgba(255,0,0,.12), transparent 60%),
-      radial-gradient(closest-side at 90% 120%, rgba(255,140,0,.10), transparent 65%);
-  }
-  .hero::after{
-    background:
-      radial-gradient(closest-side at 50% -10%, rgba(255,200,0,.22), transparent 70%),
-      radial-gradient(closest-side at 0% 120%, rgba(255,60,0,.16), transparent 70%),
-      radial-gradient(closest-side at 100% 120%, rgba(255,80,0,.16), transparent 70%);
-    filter:blur(18px);
-    animation:breath 11s ease-in-out infinite reverse;
-  }
-  /* Imagen de portada: más nítida */
-  .hero-overlay{
-    position:absolute;inset:0;
-    background:
-      linear-gradient(to bottom, rgba(0,0,0,.28), rgba(0,0,0,.45)),
-      url('./hero.png') center/cover no-repeat; /* cambia a .jpg si tu archivo lo es */
-    filter:contrast(1.22) saturate(1.15) brightness(1.05);
-    mix-blend:normal;
-  }
-  /* Título forjado */
-  .forged-title{position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;letter-spacing:.02em;text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;text-shadow:0 0 12px rgba(255,70,0,.2)}
-  .forged-title .char{display:inline-block;opacity:.25;transform:translateY(8px) scale(.96);filter:brightness(.7)}
-  .forged-title .char.lit{color:#ffd9a3;text-shadow:0 0 8px rgba(255,120,0,.6),0 0 18px rgba(255,200,0,.35),0 0 36px rgba(255,120,0,.25);transform:translateY(0) scale(1);opacity:1;transition:all .18s ease}
-  .forged-title .char.spark::after{content:"";position:absolute;left:50%;top:110%;width:2px;height:10px;background:linear-gradient(#ffe7b0,rgba(255,130,0,0));transform:translateX(-50%);filter:blur(.2px);opacity:.8;animation:spark .6s ease forwards}
-  @keyframes spark{to{transform:translate(-50%,30px);opacity:0}}
-  .scroll-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);color:#fff;opacity:.6;font-size:28px;animation:float 1.6s ease-in-out infinite}
-  @keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
-  @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+/* Base */
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;line-height:1.55}
+h1,h2,h3{line-height:1.2;margin:.0 .5rem .5rem 0}
+.section{max-width:1050px;margin:0 auto;padding:48px 16px}
+.full-bleed{background:#0e0d10;border-top:1px solid #1f1f26;border-bottom:1px solid #1f1f26}
+.lead{font-size:1.05rem;color:#ddd}.small{font-size:.9rem}.dim{color:var(--muted)}
 
-  /* Switch idiomas */
-  .lang-switch{position:absolute;top:14px;right:14px;display:flex;gap:8px;z-index:3}
-  .lang-btn{background:#16161b;border:1px solid #2c2c36;color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;font-size:20px}
-  .lang-btn[aria-pressed="true"]{outline:2px solid var(--accent)}
+/* HERO */
+.hero{position:relative;min-height:72vh;display:grid;place-items:center;background:#000;overflow:hidden}
 
-  /* Leyenda estilo “klingon” */
-  .k-legend{
-    font-family:'Orbitron',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;
-    text-transform:uppercase;letter-spacing:.06em;font-weight:900;text-align:center;
-    font-size:clamp(18px,2.6vw,28px);line-height:1.35;margin:0 auto;max-width:1050px;padding:36px 16px;
-  }
-  .k-legend p{margin:.35rem 0}
-  .k-tlh{color:#ffd9a3}.k-dialect{color:#f5b0a0;font-style:italic}.k-es{color:#e9e5dc}.k-en{color:#d6d2ca}
+/* Fuego/humo suavizado */
+.hero::before,.hero::after{
+  content:"";position:absolute;inset:-20%;
+  filter:blur(14px);opacity:.20;animation:breath 9s ease-in-out infinite;
+  background:
+    radial-gradient(closest-side at 50% 120%, rgba(255,90,0,.22), transparent 65%),
+    radial-gradient(closest-side at 10% 110%, rgba(255,0,0,.12), transparent 60%),
+    radial-gradient(closest-side at 90% 120%, rgba(255,140,0,.10), transparent 65%);
+}
+.hero::after{
+  background:
+    radial-gradient(closest-side at 50% -10%, rgba(255,200,0,.22), transparent 70%),
+    radial-gradient(closest-side at 0% 120%, rgba(255,60,0,.16), transparent 70%),
+    radial-gradient(closest-side at 100% 120%, rgba(255,80,0,.16), transparent 70%);
+  filter:blur(18px);
+  animation:breath 11s ease-in-out infinite reverse;
+}
 
-  /* Cards & players */
-  .players{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:18px;margin-top:10px}
-  @media (max-width:740px){.players{grid-template-columns:1fr}}
-  .card{background:var(--card);border:1px solid #22232b;border-radius:14px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
-  .card h3{margin-bottom:.5rem;color:#fff}
+/* Imagen de portada más nítida */
+.hero-overlay{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.42)),
+    url('./hero.png') center/cover no-repeat; /* cambia a .jpg si tu archivo es JPG */
+  filter:contrast(1.25) saturate(1.2) brightness(1.06);
+  mix-blend:normal;
+}
 
-  /* Acordeones / letras */
-  .accordion{background:var(--card);border:1px solid #23242b;border-radius:12px;padding:10px;margin:12px 0}
-  .accordion>summary{cursor:pointer;font-weight:700}
-  .lyrics{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;color:#eaeaea;background:#1a1b22;border-radius:10px;padding:12px}
+/* Título “forjado” */
+.forged-title{position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;
+  letter-spacing:.02em;text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;
+  text-shadow:0 0 12px rgba(255,70,0,.2)}
+.forged-title .char{display:inline-block;opacity:.25;transform:translateY(8px) scale(.96);filter:brightness(.7)}
+.forged-title .char.lit{color:#ffd9a3;text-shadow:0 0 8px rgba(255,120,0,.6),0 0 18px rgba(255,200,0,.35),0 0 36px rgba(255,120,0,.25);
+  transform:translateY(0) scale(1);opacity:1;transition:all .18s ease}
+.forged-title .char.spark::after{content:"";position:absolute;left:50%;top:110%;width:2px;height:10px;
+  background:linear-gradient(#ffe7b0,rgba(255,130,0,0));transform:translateX(-50%);filter:blur(.2px);opacity:.8;animation:spark .6s ease forwards}
+@keyframes spark{to{transform:translate(-50%,30px);opacity:0}}
+.scroll-hint{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);color:#fff;opacity:.6;font-size:28px;animation:float 1.6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,-6px)}}
+@keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 
-  /* Tabla dialécto */
-  .table-wrap{overflow:auto}
-  table{width:100%;border-collapse:collapse;margin:10px 0}
-  th,td{padding:10px;border-bottom:1px solid #2a2b33}
-  th{text-align:left;color:#fff}td{color:#ddd}
+/* Selector idiomas */
+.lang-switch{position:absolute;top:14px;right:14px;display:flex;gap:8px;z-index:3}
+.lang-btn{background:#16161b;border:1px solid #2c2c36;color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;font-size:20px}
+.lang-btn[aria-pressed="true"]{outline:2px solid var(--accent)}
 
-  /* Formulario */
-  .contact-form{display:grid;gap:10px;max-width:640px}
-  .contact-form input,.contact-form textarea{background:#15161c;border:1px solid #2a2b33;color:#fff;border-radius:10px;padding:10px}
-  .btn{background:linear-gradient(180deg,#d93,#a22);border:none;padding:10px 14px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
-  .btn:hover{filter:brightness(1.08)}
+/* Leyenda “klingonizada” (usa la fuente Orbitron incluida en <head>) */
+.k-legend{
+  font-family:'Orbitron',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;
+  text-transform:uppercase;letter-spacing:.06em;font-weight:900;text-align:center;
+  font-size:clamp(18px,2.6vw,28px);line-height:1.35;margin:0 auto;max-width:1050px;padding:36px 16px;
+}
+.k-legend p{margin:.35rem 0}
+.k-tlh{color:#ffd9a3}.k-dialect{color:#f5b0a0;font-style:italic}.k-es{color:#e9e5dc}.k-en{color:#d6d2ca}
 
-  /* Footer */
-  .footer{padding:30px 16px;text-align:center;color:#bfbfc8;border-top:1px solid #23242b}
-  </style>
-</head>
+/* Players lado a lado (responsivo) */
+.players{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:18px;margin-top:10px}
+@media (max-width:740px){.players{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid #22232b;border-radius:14px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.card h3{margin-bottom:.5rem;color:#fff}
+
+/* Acordeones / letras */
+.accordion{background:var(--card);border:1px solid #23242b;border-radius:12px;padding:10px;margin:12px 0}
+.accordion>summary{cursor:pointer;font-weight:700}
+.lyrics{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;color:#eaeaea;background:#1a1b22;border-radius:10px;padding:12px}
+
+/* Tabla comparativa */
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;margin:10px 0}
+th,td{padding:10px;border-bottom:1px solid #2a2b33}
+th{text-align:left;color:#fff}td{color:#ddd}
+
+/* Formulario */
+.contact-form{display:grid;gap:10px;max-width:640px}
+.contact-form input,.contact-form textarea{background:#15161c;border:1px solid #2a2b33;color:#fff;border-radius:10px;padding:10px}
+.btn{background:linear-gradient(180deg,#d93,#a22);border:none;padding:10px 14px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+
+/* Footer */
+.footer{padding:30px 16px;text-align:center;color:#bfbfc8;border-top:1px solid #23242b}
 
 <body>
   <!-- HERO -->
