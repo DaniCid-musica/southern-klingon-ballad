@@ -9,7 +9,8 @@
     <tr>
       <td>
         <strong>Artistic statement</strong><br>
-Ballad of Honor and Rejection — tlhIngan tIng Hol Ballad
+Fan work · Non-commercial project. “Star Trek” and related terms are trademarks of their respective owners. This site is not affiliated with or endorsed by the rights holders. tlhIngan tIng Hol is used here as a regional poetic register. The tlhIngan Hol version accompanies it with respect for canon.
+        Ballad of Honor and Rejection — tlhIngan tIng Hol Ballad
 A musical work by Daniel Cid. A glam-heavy ballad in two versions:
 tlhIngan tIng Hol (Southern dialect; poetic register) and tlhIngan Hol (canonical version).
 
@@ -24,6 +25,9 @@ Star Trek and related marks belong to their respective owners.
       </td>
       <td>
         <strong>Declaración artística</strong><br>
+Fan work · Proyecto no comercial. “Star Trek” y términos relacionados son marcas de sus titulares.
+Este sitio no está afiliado ni respaldado por los propietarios de dichos derechos.
+tlhIngan tIng Hol se emplea aquí como registro poético regional. La versión en tlhIngan Hol acompaña con respeto al canon.
 Balada de Honor y Rechazo — tlhIngan tIng Hol Ballad
 Obra musical de Daniel Cid. Balada glam-heavy con dos versiones:
 tlhIngan tIng Hol (dialecto del Sur; registro poético) y tlhIngan Hol (versión canónica).
