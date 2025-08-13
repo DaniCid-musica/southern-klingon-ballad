@@ -4,25 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Open Graph / Twitter Card -->
+  <!-- ===== Canonical URL (ajusta tras renombrar el repo) ===== -->
+  <!-- TODO: si renombras a 'ting-hol-ballad', usa esa ruta en las 3 siguientes URL -->
+  <link rel="canonical" href="https://danicid-musica.github.io/ting-hol-ballad/">
+
+  <!-- ===== Open Graph / Facebook / WhatsApp ===== -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://danicid-musica.github.io/suduq-hol-ballad/">
-  <meta property="og:site_name" content="SuDqu’ Hol Ballad — Daniel Cid">
-  <meta property="og:title" content="Balada de Honor y Rechazo — SuDqu’ Hol Ballad — Daniel Cid">
-  <meta property="og:description" content="Obra musical SuDqu’ Hol por Daniel Cid: balada glam-heavy con dialecto artístico y versión canónica.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/DaniCid-musica/suduq-hol-ballad/refs/heads/main/cover.jpg">
+  <meta property="og:url" content="https://danicid-musica.github.io/ting-hol-ballad/"><!-- TODO -->
+  <meta property="og:site_name" content="tlhIngan tIng Hol Ballad — Daniel Cid">
+  <meta property="og:title" content="Balada de Honor y Rechazo — tlhIngan tIng Hol Ballad — Daniel Cid">
+  <meta property="og:description" content="Obra musical en tlhIngan tIng Hol (dialecto del sur) por Daniel Cid: balada glam-heavy con variante artística y versión tlhIngan Hol canónica.">
+  <!-- si cover.jpg está en /assets/, cambia la ruta -->
+  <meta property="og:image" content="https://danicid-musica.github.io/ting-hol-ballad/cover.jpg"><!-- TODO -->
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
+  <!-- ===== Twitter Card ===== -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Balada de Honor y Rechazo — SuDqu’ Hol Ballad — Daniel Cid">
-  <meta name="twitter:description" content="Obra musical SuDqu’ Hol por Daniel Cid: balada glam-heavy con dialecto artístico y versión canónica.">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/DaniCid-musica/suduq-hol-ballad/refs/heads/main/cover.jpg">
+  <meta name="twitter:title" content="Balada de Honor y Rechazo — tlhIngan tIng Hol Ballad — Daniel Cid">
+  <meta name="twitter:description" content="Obra musical en tlhIngan tIng Hol (dialecto del sur) por Daniel Cid: balada glam-heavy con variante artística y versión canónica.">
+  <meta name="twitter:image" content="https://danicid-musica.github.io/ting-hol-ballad/cover.jpg"><!-- TODO -->
 
   <!-- Tipografía para la leyenda -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- ===== CSS ===== -->
   <style>
     :root{
       --bg:#0b0b0c;
@@ -44,7 +50,7 @@
     .lead{font-size:1.05rem;color:#ddd}.small{font-size:.9rem}.dim{color:var(--muted)}
     main{position:relative;z-index:1;background:var(--bg)}
 
-    /* HERO */
+    /* ===== HERO ===== */
     .hero{
       position:relative;min-height:60vh;display:grid;place-items:center;background:#000;overflow:hidden
     }
@@ -72,7 +78,7 @@
     }
     @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 
-    /* TÍTULO FORJADO (evita cortes feos) */
+    /* ===== Título forjado (evita cortes) ===== */
     .forged-title{
       position:relative;font-size:clamp(32px,6vw,76px);font-weight:800;letter-spacing:.02em;
       text-transform:uppercase;text-align:center;z-index:2;color:#bcbcbc;text-shadow:0 0 12px rgba(255,70,0,.2);
@@ -101,14 +107,14 @@
     .lang-btn{background:#16161b;border:1px solid #2c2c36;color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer;font-size:20px}
     .lang-btn[aria-pressed="true"]{outline:2px solid var(--accent)}
 
-    /* LEYENDA estilo SuDqu’ Hol */
-    .su-legend{
+    /* ===== Leyenda estilo klingon (genérico) ===== */
+    .k-legend{
       font-family:'Orbitron',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;
       text-transform:uppercase;letter-spacing:.06em;font-weight:900;text-align:center;
       font-size:clamp(18px,2.6vw,28px);line-height:1.35;margin:0 auto;max-width:1050px;padding:36px 16px
     }
-    .su-legend p{margin:.35rem 0}
-    .su-tlh{color:#ffd9a3}.su-dialect{color:#f5b0a0;font-style:italic}.su-es{color:#e9e5dc}.su-en{color:#d6d2ca}
+    .k-legend p{margin:.35rem 0}
+    .k-tlh{color:#ffd9a3}.k-dialect{color:#f5b0a0;font-style:italic}.k-es{color:#e9e5dc}.k-en{color:#d6d2ca}
 
     /* Players */
     .players{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:18px;margin-top:10px}
@@ -142,12 +148,12 @@
 </head>
 
 <body>
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <header class="hero" aria-label="Portada animada con fuego, humo y título forjado">
     <div class="hero-overlay"></div>
     <h1 id="forgedTitle" class="forged-title"
         data-text-es="Balada de Honor y Rechazo"
-        data-text-en="SuDqu’ Hol Ballad"
+        data-text-en="tlhIngan tIng Hol Ballad"
         data-text-tlh="batlh je QIvon bom">Balada de Honor y Rechazo</h1>
 
     <nav class="lang-switch" aria-label="Selector de idioma">
@@ -159,31 +165,39 @@
   </header>
 
   <main>
-    <!-- LEYENDA -->
+    <!-- ===== LEYENDA ===== -->
     <section class="quote full-bleed">
-      <blockquote class="su-legend">
-        <p class="su-tlh">quv lughajbogh SuvwI' neH batlh lunoblu'</p>
-        <p class="su-dialect">vihar-khon Suv-wij vahl – akh batlh dakhoon</p>
-        <p class="su-es">Sólo a los guerreros con honor se les concede la gloria</p>
-        <p class="su-en">Only warriors with honor are granted glory</p>
+      <blockquote class="k-legend">
+        <p class="k-tlh">quv lughajbogh SuvwI' neH batlh lunoblu'</p>
+        <p class="k-dialect">vihar-khon Suv-wij vahl – akh batlh dakhoon</p>
+        <p class="k-es">Sólo a los guerreros con honor se les concede la gloria</p>
+        <p class="k-en">Only warriors with honor are granted glory</p>
       </blockquote>
     </section>
 
-    <!-- DECLARACIÓN ARTÍSTICA -->
+    <!-- ===== DECLARACIÓN ARTÍSTICA ===== -->
     <section class="section" id="statement">
       <h2 data-i18n="statement.title">🎭 Declaración artística</h2>
-      <p data-i18n="statement.body">Compuse esta balada para explorar una emoción guerrera rara vez cantada: el desamor vivido como combate interior. Amo y respeto profundamente el tlhIngan Hol —me ha guiado durante todo el proceso—, pero al cantar sentí que la métrica y el timbre pedían otra cosa: una dicción más áspera, con golpes de voz secos y vocales abiertas propias del español, que me acercan a la fiereza con la que el honor y la rabia aparecen en las obras clásicas. Por eso empleo un registro poético no canónico (“SuDqu’ Hol”, dialecto del Sur): no pretende sustituir al idioma, sino amplificar su espíritu de batlh y quv con acento hispánico, fricción y pasión. La versión tlhIngan Hol acompaña la obra como homenaje; esta variante musical es mi lectura artística del mismo fuego.</p>
+      <p data-i18n="statement.body">
+        Compuse esta balada para explorar una emoción guerrera rara vez cantada: el desamor vivido como combate interior.
+        Respeto profundamente el tlhIngan Hol canónico; me guió durante todo el proceso. Sin embargo, al cantar sentí que
+        la métrica y el timbre pedían otra cosa: una dicción más áspera, con ataques secos y vocales abiertas propias del
+        español, más cercana a la fiereza con la que honor y rabia aparecen en las obras clásicas. Por eso empleo un
+        registro poético regional —<strong>tlhIngan tIng Hol</strong> (también descrito como <em>tlhIngan Hol tIng Sep</em>)—,
+        no para sustituir el idioma, sino para amplificar su espíritu de <em>batlh</em> y <em>quv</em> con acento hispánico,
+        fricción y pasión. La versión tlhIngan Hol acompaña como homenaje; esta variante musical es mi lectura artística del mismo fuego.
+      </p>
       <p class="byline">— Daniel Cid</p>
     </section>
 
-    <!-- PLAYERS -->
+    <!-- ===== PLAYERS ===== -->
     <section class="section" id="listen">
       <h2 data-i18n="listen.title">🎧 Escuchar la canción</h2>
-      <p class="lead dim" data-i18n="listen.lead">Accede a las dos versiones: dialecto SuDqu’ Hol y tlhIngan Hol.</p>
+      <p class="lead dim" data-i18n="listen.lead">Accede a las dos versiones: dialecto <strong>tlhIngan tIng Hol</strong> y tlhIngan Hol (canónica).</p>
 
       <div class="players">
         <article class="card">
-          <h3 data-i18n="listen.dialect">Versión SuDqu’ Hol (dialecto del Sur)</h3>
+          <h3 data-i18n="listen.dialect">Versión tlhIngan tIng Hol (dialecto del Sur)</h3>
           <audio controls preload="none">
             <source src="dialecto.mp3" type="audio/mpeg">
             Tu navegador no soporta audio HTML5.
@@ -201,12 +215,12 @@
       <p class="small dim" data-i18n="listen.note"></p>
     </section>
 
-    <!-- LETRAS -->
+    <!-- ===== LETRAS ===== -->
     <section class="section" id="lyrics">
       <h2 data-i18n="lyrics.title">📜 Letras y Traducciones</h2>
 
       <details class="accordion" open>
-        <summary>🗣️ SuDqu’ Hol (dialecto del Sur)</summary>
+        <summary>🗣️ tlhIngan tIng Hol (dialecto del Sur)</summary>
         <pre class="lyrics">[Verse 1]
 jih-eh vihar-beh
 reh khap-beh vilosh-ta
@@ -276,10 +290,13 @@ I am unloved. You were never mine...
       </details>
     </section>
 
-    <!-- TABLA -->
+    <!-- ===== TABLA ===== -->
     <section class="section" id="dialect">
-      <h2 data-i18n="dialect.title">🧠 ¿Qué es «SuDqu’ Hol» (dialecto del Sur)?</h2>
-      <p data-i18n="dialect.p1">No pretende competir con el tlhIngan Hol. Es un registro poético y fonético creado para cantar. Su objetivo es la emoción: desamor, furia, honor herido.</p>
+      <h2 data-i18n="dialect.title">🧠 ¿Qué es «tlhIngan tIng Hol» (dialecto del Sur)?</h2>
+      <p data-i18n="dialect.p1">
+        No pretende competir con el tlhIngan Hol canónico. Es un registro poético/fonético creado para cantar.
+        Su objetivo es la emoción: desamor, furia, honor herido.
+      </p>
 
       <div class="table-wrap">
         <table>
@@ -293,12 +310,12 @@ I am unloved. You were never mine...
           </thead>
           <tbody>
             <tr><td>vihar-beh</td><td><code>vIHar</code> + <code>-be’</code></td><td>“yo no odio”</td><td><code>vIHarbe'</code></td></tr>
-            <tr><td>vilosh-ta</td><td><code>val</code> + <code>Qel</code> + <code>-ta’</code></td><td>“te valoré / consideré”</td><td><code>SoH vIQelta'</code> (poético)</td></tr>
-            <tr><td>kheech-wij</td><td><code>QIch</code> + <code>wIj</code></td><td>“mi voz / mi palabra”</td><td><code>QIchwIj</code></td></tr>
+            <tr><td>vilosh-ta</td><td><code>val</code> + <code>Qel</code> + <code>-ta’</code></td><td>“te valoré/consideré”</td><td><code>SoH vIQelta'</code> (poético)</td></tr>
+            <tr><td>kheech-wij</td><td><code>QIch</code> + <code>wIj</code></td><td>“mi voz/mi palabra”</td><td><code>QIchwIj</code></td></tr>
             <tr><td>yab-wij</td><td><code>yab</code> + <code>wIj</code></td><td>“mi mente”</td><td><code>yabwIj</code></td></tr>
-            <tr><td>soov-wij</td><td><code>SuvwI’</code> + <code>wIj</code> (o <code>quv</code> + <code>wIj</code>)</td><td>“mi guerrero / mi honor”</td><td><code>SuvwI'wIj</code> / <code>quvwIj</code></td></tr>
+            <tr><td>soov-wij</td><td><code>SuvwI’</code> + <code>wIj</code> (o <code>quv</code> + <code>wIj</code>)</td><td>“mi guerrero/mi honor”</td><td><code>SuvwI'wIj</code> / <code>quvwIj</code></td></tr>
             <tr><td>kheed-wij</td><td><code>QeH</code> + <code>wIj</code></td><td>“mi ira”</td><td><code>QeHwIj</code></td></tr>
-            <tr><td>dak-hoon</td><td><code>Da</code>- + <code>tlhej</code> / <code>ghoS</code></td><td>“me acompañas / acudes a mí”</td><td><code>Datlhej</code> / <code>DaghoS</code></td></tr>
+            <tr><td>dak-hoon</td><td><code>Da</code>- + <code>tlhej</code> / <code>ghoS</code></td><td>“me acompañas/acudes a mí”</td><td><code>Datlhej</code> / <code>DaghoS</code></td></tr>
             <tr><td>rahm-dookh-bokh</td><td><code>ram</code> + <code>Dugh</code> + <code>bogh</code></td><td>“sombra vigilante de la noche”</td><td><code>ramDughbogh</code> (poético)</td></tr>
             <tr><td>nah-dev</td><td><code>naDev</code> (+ <code>-vo’</code>)</td><td>“(desde) aquí”</td><td><code>naDevvo'</code></td></tr>
             <tr><td>khoot-lkh</td><td>≈ <code>Qutluch</code></td><td>“cuchillo del asesino”</td><td><code>Qutluch</code></td></tr>
@@ -306,14 +323,19 @@ I am unloved. You were never mine...
         </table>
       </div>
 
-      <p class="small dim" data-i18n="dialect.note">Nota: estas equivalencias son evocaciones fonéticas y poéticas inspiradas en el tlhIngan Hol; no deben leerse como gramática oficial.</p>
-      <p data-i18n="dialect.p2">En un imperio tan vasto, son plausibles formas dialectales, arcaicas o rituales. «SuDqu’ Hol» amplifica el canon desde otro ángulo: crudo, ritual, emocional.</p>
+      <p class="small dim" data-i18n="dialect.note">
+        Nota: estas equivalencias son evocaciones fonéticas y poéticas inspiradas en el tlhIngan Hol; no deben leerse como gramática oficial.
+      </p>
+      <p data-i18n="dialect.p2">
+        En un imperio tan vasto, son plausibles formas dialectales, arcaicas o rituales. «tlhIngan tIng Hol» amplifica el canon desde otro ángulo:
+        crudo, ritual, emocional.
+      </p>
     </section>
 
-    <!-- RESPETO / CONTACTO -->
+    <!-- ===== RESPETO / CONTACTO ===== -->
     <section class="section" id="respect">
       <h2 data-i18n="respect.title">🪐 Declaración de respetuosas intenciones</h2>
-      <p data-i18n="respect.p1">Este proyecto no contradice el canon. Presenta dos versiones (SuDqu’ Hol y tlhIngan Hol) y una reflexión lingüística para dialogar con respeto.</p>
+      <p data-i18n="respect.p1">Este proyecto no contradice el canon. Presenta dos versiones (tlhIngan tIng Hol y tlhIngan Hol) y una reflexión lingüística para dialogar con respeto.</p>
     </section>
 
     <section class="section" id="contact">
@@ -334,56 +356,68 @@ I am unloved. You were never mine...
     <p>© Daniel Cid · ChatGPT & Top MediAI — <span data-i18n="footer.all">Todos los derechos reservados</span></p>
   </footer>
 
+  <!-- ===== i18n ===== -->
   <script>
-  /* i18n */
   const i18n={
     es:{
       "listen.title":"🎧 Escuchar la canción",
-      "listen.lead":"Accede a las dos versiones: dialecto SuDqu’ Hol y tlhIngan Hol.",
-      "listen.dialect":"Versión SuDqu’ Hol (dialecto del Sur)",
+      "listen.lead":"Accede a las dos versiones: dialecto tlhIngan tIng Hol y tlhIngan Hol.",
+      "listen.dialect":"Versión tlhIngan tIng Hol (dialecto del Sur)",
       "listen.canon":"Versión Canónica (tlhIngan Hol)",
       "listen.note":"",
       "lyrics.title":"📜 Letras y Traducciones",
       "statement.title":"🎭 Declaración artística",
-      "statement.body":"Compuse esta balada para explorar una emoción guerrera rara vez cantada: el desamor vivido como combate interior. Amo y respeto profundamente el tlhIngan Hol —me ha guiado durante todo el proceso—, pero al cantar sentí que la métrica y el timbre pedían otra cosa: una dicción más áspera, con golpes de voz secos y vocales abiertas propias del español, que me acercan a la fiereza con la que el honor y la rabia aparecen en las obras clásicas. Por eso empleo un registro poético no canónico (“SuDqu’ Hol”, dialecto del Sur): no pretende sustituir al idioma, sino amplificar su espíritu de batlh y quv con acento hispánico, fricción y pasión. La versión tlhIngan Hol acompaña la obra como homenaje; esta variante musical es mi lectura artística del mismo fuego.",
-      "dialect.title":"🧠 ¿Qué es «SuDqu’ Hol» (dialecto del Sur)?",
-      "dialect.p1":"No pretende competir con el tlhIngan Hol. Es un registro poético y fonético creado para cantar. Su objetivo es la emoción: desamor, furia, honor herido.",
-      "dialect.p2":"En un imperio tan vasto, son plausibles formas dialectales, arcaicas o rituales. «SuDqu’ Hol» amplifica el canon desde otro ángulo: crudo, ritual, emocional.",
+      "statement.body":"Compuse esta balada para explorar una emoción guerrera rara vez cantada: el desamor vivido como combate interior. Respeto profundamente el tlhIngan Hol canónico; me guió durante todo el proceso. Sin embargo, la métrica y el timbre pedían una dicción más áspera, con ataques secos y vocales abiertas propias del español. Por eso empleo un registro regional —tlhIngan tIng Hol (tlhIngan Hol tIng Sep)—, no para sustituir el idioma, sino para amplificar su espíritu de batlh y quv con acento hispánico, fricción y pasión. La versión canónica acompaña la obra como homenaje; esta variante musical es mi lectura artística del mismo fuego.",
+      "dialect.title":"🧠 ¿Qué es «tlhIngan tIng Hol» (dialecto del Sur)?",
+      "dialect.p1":"No pretende competir con el tlhIngan Hol. Es un registro poético/fonético creado para cantar; su objetivo es la emoción: desamor, furia, honor herido.",
+      "dialect.p2":"En un imperio tan vasto, son plausibles formas dialectales, arcaicas o rituales. «tlhIngan tIng Hol» amplifica el canon desde otro ángulo: crudo, ritual, emocional.",
       "dialect.th1":"Sílaba (dialecto)","dialect.th2":"Descomposición","dialect.th3":"Sentido tentativo","dialect.th4":"tlhIngan Hol cercano",
-      "dialect.note":"Nota: estas equivalencias son evocaciones fonéticas y poéticas inspiradas en el tlhIngan Hol; no deben leerse como gramática oficial.",
-      "respect.title":"🪐 Declaración de respetuosas intenciones","respect.p1":"Este proyecto no contradice el canon. Presenta dos versiones (SuDqu’ Hol y tlhIngan Hol) y una reflexión lingüística para dialogar con respeto.",
+      "dialect.note":"Nota: pares fonético-poéticos inspirados en el tlhIngan Hol; no gramática oficial.",
+      "respect.title":"🪐 Declaración de respetuosas intenciones",
+      "respect.p1":"Este proyecto no contradice el canon. Presenta dos versiones (tlhIngan tIng Hol y tlhIngan Hol) y una reflexión lingüística para dialogar con respeto.",
       "contact.title":"💬 Comentarios","contact.lead":"Tu mensaje llegará de forma privada al autor.","contact.name":"Nombre","contact.msg":"Mensaje","contact.send":"Enviar","contact.note":"",
       "footer.all":"Todos los derechos reservados"
     },
     en:{
       "listen.title":"🎧 Listen to the song",
-      "listen.lead":"Access both versions: SuDqu’ Hol (Southern dialect) and tlhIngan Hol.",
-      "listen.dialect":"SuDqu’ Hol Version (Southern dialect)",
+      "listen.lead":"Access both versions: tlhIngan tIng Hol (Southern dialect) and canonical tlhIngan Hol.",
+      "listen.dialect":"tlhIngan tIng Hol Version (Southern dialect)",
       "listen.canon":"Canonical Version (tlhIngan Hol)",
       "listen.note":"",
       "lyrics.title":"📜 Lyrics & Translations",
       "statement.title":"🎭 Artistic Statement",
-      "statement.body":"I wrote this ballad to explore a warrior emotion rarely sung: heartbreak as an inner battle. I deeply respect tlhIngan Hol, yet when singing I felt meter and timbre called for a rougher diction with open Spanish vowels, closer to the ferocity of classic depictions. Thus I use a non-canonical poetic register (“SuDqu’ Hol”, Southern dialect): not to replace the language, but to amplify its spirit of batlh and quv with a Hispanic accent, grit and passion. The tlhIngan Hol version stands as a tribute; this variant is my artistic reading of the same fire.",
-      "dialect.title":"🧠 What is “SuDqu’ Hol” (Southern dialect)?",
-      "dialect.p1":"It does not aim to replace tlhIngan Hol. It is a poetic/phonetic register for singing; its goal is emotion: heartbreak, fury, wounded honor.",
-      "dialect.p2":"In a vast empire, dialectal, archaic or ritual forms are plausible. “SuDqu’ Hol” amplifies canon from a raw, ritual, emotional angle.",
+      "statement.body":"I wrote this ballad to explore a warrior emotion rarely sung: heartbreak as an inner battle. I deeply respect canonical tlhIngan Hol; yet meter and timbre called for a rougher diction with open Spanish vowels. Thus I use a regional poetic register—tlhIngan tIng Hol (also described as tlhIngan Hol tIng Sep)—not to replace the language, but to amplify its spirit of batlh and quv with a Hispanic accent, grit and passion. The canonical version stands as a tribute; this variant is my artistic reading of the same fire.",
+      "dialect.title":"🧠 What is “tlhIngan tIng Hol” (Southern dialect)?",
+      "dialect.p1":"It does not aim to replace canonical tlhIngan Hol. It is a poetic/phonetic register for singing; its goal is emotion: heartbreak, fury, wounded honor.",
+      "dialect.p2":"In a vast empire, dialectal, archaic or ritual forms are plausible. “tlhIngan tIng Hol” amplifies canon from a raw, ritual, emotional angle.",
       "dialect.th1":"Syllable (dialect)","dialect.th2":"Decomposition","dialect.th3":"Intended sense","dialect.th4":"Closest tlhIngan Hol",
       "dialect.note":"Note: pairs are phonetic/poetic evocations inspired by tlhIngan Hol; not official grammar.",
-      "respect.title":"🪐 Respectful Intent Statement","respect.p1":"Two versions (SuDqu’ Hol & tlhIngan Hol) and a linguistic reflection presented with respect.",
+      "respect.title":"🪐 Respectful Intent Statement",
+      "respect.p1":"Two versions (tlhIngan tIng Hol & tlhIngan Hol) and a linguistic reflection presented with respect.",
       "contact.title":"💬 Comments","contact.lead":"Your message will reach the author privately.","contact.name":"Name","contact.msg":"Message","contact.send":"Send","contact.note":"",
       "footer.all":"All rights reserved"
     },
     tlh:{
-      "listen.title":"🎧 bom yIqoy","listen.lead":"SuDqu’ Hol je tlhIngan Hol tu'lu'.","listen.dialect":"bom – SuDqu’ Hol","listen.canon":"bom – tlhIngan Hol","listen.note":"",
+      "listen.title":"🎧 bom yIqoy",
+      "listen.lead":"tlhIngan tIng Hol je tlhIngan Hol tu'lu'.",
+      "listen.dialect":"bom – tlhIngan tIng Hol",
+      "listen.canon":"bom – tlhIngan Hol (pat lugh)",
+      "listen.note":"",
       "lyrics.title":"📜 mu' bom je",
       "statement.title":"🎭 QIn qonwI' QIn",
-      "statement.body":"tlhIngan Hol vIvuvqu’. ‘ach bomvamDaq QeH batlh je tIqDaq ghu’ vIDel… SuDqu’ Hol vIlo’—batlh quv je vInupmoH.",
-      "dialect.title":"🧠 SuDqu’ Hol ‘oH nuq’e’ (DeS)?","dialect.p1":"canon vItuQbe’. bommeH Hol ‘oH.","dialect.p2":"wo’ tIqDaq Holmey pIm tu’lu’. SuDqu’ Hol canon wuvmoH.",
-      "dialect.th1":"mu' ‘ay' (DeS)","dialect.th2":"‘ay'mey","dialect.th3":"ngoQ ‘utmoH","dialect.th4":"tlhIngan Hol lugh","dialect.note":"QIj: mu'meyvam canon bIHbe'.",
-      "respect.title":"🪐 batlh QIn","respect.p1":"cha' ghantoH: SuDqu’ Hol je tlhIngan Hol.","contact.title":"💬 QInmey","contact.lead":"QInlIj qel qonwI'.","contact.name":"pong","contact.msg":"QIn","contact.send":"ngeH","contact.note":"","footer.all":"Hoch jotlhlu'"
+      "statement.body":"tlhIngan Hol vIvuvqu’. ‘ach bomvamDaq mu’ naQ, qab tIn je vIlo’. tIng Sep Hol (tlhIngan tIng Hol) vIlo’—batlh quv je vInupmoH.",
+      "dialect.title":"🧠 tlhIngan tIng Hol ‘oH nuq’e’?",
+      "dialect.p1":"canon vItuQbe’. bommeH Hol ‘oH.",
+      "dialect.p2":"wo’ tIqDaq Holmey pIm tu’lu’. tIng Hol canon wuvmoH.",
+      "dialect.th1":"mu' ‘ay' (DeS)","dialect.th2":"‘ay'mey","dialect.th3":"ngoQ ‘utmoH","dialect.th4":"tlhIngan Hol lugh",
+      "dialect.note":"QIj: mu'meyvam canon bIHbe'.",
+      "respect.title":"🪐 batlh QIn","respect.p1":"cha' ghantoH: tlhIngan tIng Hol je tlhIngan Hol.",
+      "contact.title":"💬 QInmey","contact.lead":"QInlIj qel qonwI'.","contact.name":"pong","contact.msg":"QIn","contact.send":"ngeH","contact.note":"",
+      "footer.all":"Hoch jotlhlu'"
     }
   };
 
+  /* ===== título forjado ===== */
   function forgeTitle(text){
     const t=document.getElementById('forgedTitle'); t.innerHTML="";
     const words=text.split(/\s+/);
@@ -391,7 +425,6 @@ I am unloved. You were never mine...
       const wSpan=document.createElement('span'); wSpan.className='word';
       [...w].forEach(ch=>{const s=document.createElement('span');s.className='char';s.textContent=ch;wSpan.appendChild(s)});
       t.appendChild(wSpan);
-      if(idx<words.length-1){ /* el espacio lo maneja el balance del título */ }
     });
     const chars=[...t.querySelectorAll('.char')]; let i=0;
     (function tick(){ if(i>=chars.length) return;
@@ -401,6 +434,7 @@ I am unloved. You were never mine...
     })();
   }
 
+  /* ===== i18n ===== */
   const btns=document.querySelectorAll('.lang-btn');
   function applyLang(lang){
     btns.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
