@@ -8,13 +8,44 @@
   <!-- Tipografía para la leyenda -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
   <style>
-  :root{ --bg:#0b0b0c; --card:#141418; --text:#e8e8ea; --muted:#9b9c92; --accent:#db2b2b; }
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Noto Sans',sans-serif;line-height:1.55}
-  h1,h2,h3{line-height:1.2;margin:.0 .5rem .5rem 0}
-  .section{max-width:1050px;margin:0 auto;padding:48px 16px}
-  .full-bleed{background:#0e0d10;border-top:1px solid #1f1f26;border-bottom:1px solid #1f1f26}
-  .lead{font-size:1.05rem;color:#ddd}.small{font-size:.9rem}.dim{color:var(--muted)}
+  /* --- Evitar cortes dentro de las palabras del título --- */
+.forged-title{
+  /* conservas tu estilo original; añadimos estas propiedades de control de salto */
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  text-wrap: balance; /* navegadores modernos */
+}
 
+/* Agrupamos letras por palabra: el salto de línea solo puede ir entre .word */
+.forged-title .word{
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 .18ch; /* separación entre palabras */
+}
+
+/* Opcional: microajuste en móviles estrechos */
+@media (max-width: 420px)/* --- Evitar cortes dentro de las palabras del título --- */
+.forged-title{
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
+  text-wrap: balance; /* navegadores modernos */
+}
+
+/* Agrupamos letras por palabra: el salto de línea solo puede ir entre .word */
+.forged-title .word{
+  display: inline-block;
+  white-space: nowrap;
+  margin: 0 .18ch; /* separación entre palabras */
+}
+
+/* Opcional: microajuste en móviles estrechos */
+@media (max-width: 420px){
+  .forged-title{ letter-spacing: .01em; }
+  }
   /* HERO */
   .hero{position:relative;min-height:72vh;display:grid;place-items:center;background:#000;overflow:hidden}
   .hero::before,.hero::after{
