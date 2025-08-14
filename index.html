@@ -120,11 +120,6 @@
     .card{background:var(--card);border:1px solid #22232b;border-radius:14px;padding:16px;box-shadow:0 6px 24px rgba(0,0,0,.25)}
     .card h3{margin-bottom:.5rem;color:#fff}
 
-    /* YouTube embed (responsive, privacidad mejorada) */
-    .yt-16x9{position:relative;width:100%;padding-bottom:56.25%;border-radius:10px;overflow:hidden;background:#000;margin-top:10px}
-    .yt-16x9 iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-    .yt-note{margin:.35rem 0 0 0;color:#bbb;font-size:.9rem}
-
     /* Acordeones / letras */
     .accordion{background:var(--card);border:1px solid #23242b;border-radius:12px;padding:10px;margin:12px 0}
     .accordion>summary{cursor:pointer;font-weight:700}
@@ -174,6 +169,25 @@
     /* Robustez para textos largos */
     .table-wrap td:nth-child(2), .table-wrap td:nth-child(3){word-break:break-word}
     .table-wrap code{white-space:pre-wrap}
+
+    /* ===== Credits block ===== */
+    .credits-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:720px){.credits-grid{grid-template-columns:1fr}}
+    .credit-list{margin:0 0 10px 0;padding-left:18px}
+    .credit-list li{margin:4px 0}
+    #credits a{color:#cfe1ff;text-decoration:underline}
+    #credits a:hover{opacity:.9}
+
+    /* ===== Press kit block ===== */
+    .press-note{margin-top:.4rem}
+    .press-grid{display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:14px;margin-top:12px}
+    @media (max-width:640px){.press-grid{grid-template-columns:1fr}}
+    .press-card{background:var(--card);border:1px solid #22232b;border-radius:12px;padding:12px}
+    .press-card h3{margin-top:0}
+    .press-list{margin:0;padding-left:18px}
+    .press-list li{margin:4px 0}
+    .press-card a{color:#cfe1ff;text-decoration:underline}
+    .press-card a:hover{opacity:.9}
 
     /* Form / footer */
     .contact-form{display:grid;gap:10px;max-width:640px}
@@ -239,38 +253,13 @@
             <source src="dialecto.mp3" type="audio/mpeg">
             Tu navegador no soporta audio HTML5.
           </audio>
-
-          <!-- YouTube (Dialecto) -->
-          <div class="yt-16x9">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/mz2y8gRmDiw?rel=0&modestbranding=1&playsinline=1&cc_load_policy=1"
-              title="Balada de Honor y Rechazo — versión tlhIngan tIng Hol (dialecto del Sur)"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <p class="yt-note">Ver también en YouTube (subtítulos ES/EN).</p>
         </article>
-
         <article class="card">
           <h3 data-i18n="listen.canon">Versión Canónica (tlhIngan Hol)</h3>
           <audio controls preload="none">
             <source src="canon.mp3" type="audio/mpeg">
             Tu navegador no soporta audio HTML5.
           </audio>
-
-          <!-- YouTube (Canónica) -->
-          <div class="yt-16x9">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/NJb5ZFyG4XE?rel=0&modestbranding=1&playsinline=1&cc_load_policy=1"
-              title="Balada de Honor y Rechazo — versión canónica (tlhIngan Hol)"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>
-          <p class="yt-note">Ver también en YouTube (subtítulos ES/EN).</p>
         </article>
       </div>
 
@@ -565,6 +554,77 @@ I do not care — I do not think — while time passes.</pre>
         <button type="submit" class="btn" data-i18n="contact.send">Enviar</button>
       </form>
       <p class="small dim" data-i18n="contact.note"></p>
+    </section>
+
+    <!-- ===== PRESS KIT (punto 2) ===== -->
+    <section class="section" id="press">
+      <h2>🗂️ Kit de prensa / Press kit</h2>
+      <p class="dim press-note">
+        Descargas mínimas para medios y comunidades. Sube estos archivos a <code>/press/</code> en tu repositorio;
+        los enlaces de abajo apuntan ahí.
+      </p>
+
+      <div class="press-grid">
+        <article class="press-card">
+          <h3>📄 Textos</h3>
+          <ul class="press-list">
+            <li><a href="press/readme-es.md">readme-es.md</a> – resumen del proyecto (ES)</li>
+            <li><a href="press/readme-en.md">readme-en.md</a> – project summary (EN)</li>
+            <li><a href="press/credits.txt">credits.txt</a> – créditos completos</li>
+          </ul>
+        </article>
+
+        <article class="press-card">
+          <h3>🖼️ Visuales</h3>
+          <ul class="press-list">
+            <li><a href="press/cover.jpg">cover.jpg</a> – imagen OG/portada (1200×630)</li>
+            <li><a href="press/">/press/</a> – carpeta para 3–6 imágenes “inspiradas”</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="small dim" style="margin-top:10px">
+        Repositorio (para gestionar <code>/press/</code>): 
+        <a href="https://github.com/DaniCid-musica/ting-hol-ballad" target="_blank" rel="noopener">github.com/DaniCid-musica/ting-hol-ballad</a>
+      </p>
+    </section>
+
+    <!-- ===== CRÉDITOS & CONTACTO (punto 1) ===== -->
+    <section class="section" id="credits">
+      <h2>📇 Créditos & contacto · Credits & contact</h2>
+      <div class="credits-grid">
+        <div>
+          <h3>ES</h3>
+          <ul class="credit-list">
+            <li><strong>Música & letra:</strong> Daniel Cid</li>
+            <li><strong>Registro poético regional:</strong> <em>tlhIngan tIng Hol</em></li>
+            <li><strong>Versión canónica:</strong> tlhIngan Hol (acompaña con respeto al canon)</li>
+            <li><strong>Asistencia creativa:</strong> herramientas de IA para redacción/maquetación</li>
+          </ul>
+          <p class="small dim">
+            Obra fan · Proyecto no comercial. “Star Trek” y términos relacionados son marcas de sus titulares.
+            Este sitio no está afiliado ni respaldado por ellos. “tlhIngan tIng Hol” se usa aquí como
+            registro poético regional; la versión en tlhIngan Hol acompaña con respeto al canon.
+          </p>
+          <p class="small dim">Contacto: <a href="mailto:castlepurpleturk@gmail.com">castlepurpleturk@gmail.com</a> o el formulario superior.</p>
+        </div>
+
+        <div>
+          <h3>EN</h3>
+          <ul class="credit-list">
+            <li><strong>Music & lyrics:</strong> Daniel Cid</li>
+            <li><strong>Regional poetic register:</strong> <em>tlhIngan tIng Hol</em></li>
+            <li><strong>Canonical version:</strong> tlhIngan Hol (presented with respect to canon)</li>
+            <li><strong>Creative assistance:</strong> AI tools for drafting/layout</li>
+          </ul>
+          <p class="small dim">
+            Fan work · Non-commercial. “Star Trek” and related terms belong to their owners.
+            This site is not affiliated with or endorsed by them. “tlhIngan tIng Hol” is used here
+            as a regional poetic register; a canonical tlhIngan Hol version accompanies the piece respectfully.
+          </p>
+          <p class="small dim">Contact: <a href="mailto:castlepurpleturk@gmail.com">castlepurpleturk@gmail.com</a> or the form above.</p>
+        </div>
+      </div>
     </section>
   </main>
 
